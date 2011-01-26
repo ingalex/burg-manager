@@ -1,0 +1,70 @@
+instalar burg
+Parametros
+I N S T A L A C I O N  D E  B U R G
+Indicar el disco donde instalar/restaurar burg (default: sda)
+Click debajo para probar y elegir el tema de burg, teclas utiles: ' T ' selecciona el tema, ' F ' folding mode
+instalar burg
+burg-emu
+Selecciona un OS inicial
+Aplicar
+Elige la resolucion adecuada para tu monitor:
+Cambia resolucion
+El tiempo de espera es de
+segundos
+Cambiar tiempo de espera
+Aplicar los cambios
+Instalacion de Temas
+Desinstalar burg
+Eliminar Burg y reinstalar grub
+desinstalar burg
+Elegir el disco
+Reinstalar grub
+Parametros avanzados
+Editar directamente el archivo /etc/default/burg
+Abrir archivo
+Habilitar
+Deshabilitar
+Cambiar
+Salvar
+Para proteger Burg con password es necesario especificar un nombre de usuario debajo:
+Agregar
+Eliminar
+Info
+LICENCIA
+SITIO BURG-MANAGER
+BURG HOMEPAGE PROJECT
+SITIO BUC
+SITIO SICILINUX
+Doble click sobre un icono para instalar un tema
+Para eliminar las versiones anteriores del kernel y sus respectivas entradas del menu clicar aqui:
+Ejecuta
+Para restaurar la configuracion predeterminada del burg-manager clicar aqui:
+Restaura la configuracion
+Boot iso
+Selecciona la iso a bootear
+Agrega entrada en el menu
+Establece el tipo de iso
+Verifica la disponibilidad de actualizaciones
+Ejecuta
+Esta disponible una nueva version del Burg-Manager
+Deseas actualizar?
+Si
+No
+nombre administrador
+nombre usuario
+Luego de la actualizacion el programa sera
+reiniciado automaticamente
+Ninguna actualizacion disponible
+OK
+Selecciona la iso de la que deseas eliminar la entrada de menu
+Eliminar
+Operacion efectuada con exito
+Restaura el Burg en el MBR
+Parametros base
+En caso de actualizacion del kernel el
+Burg sera sobreescrito por Grub en el MBR.
+Clicando en "Restaura el Burg en el MBR"
+es posible solucionar este
+inconveniente.
+Ayuda
+Ha ocurrido un error durante la instalación

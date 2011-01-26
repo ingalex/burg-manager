@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#menuentry to remove
+#mtr=$(sed -e '/./{H;$!d;}' -e 'x;/$isotoremove/!d;' /etc/burg.d/50_ubuntu_iso)
+
+#id menuentry
+rtot=$(wc -l  ~/.burg-manager/listaiso | awk '{print $1}')
+toremove=$(cat ~/.burg-manager/isotoremove) 
+idm=$(grep -n -i -x "$toremove" ~/.burg-manager/listaiso| awk '{print $1}'| tr -cd [:digit:])
+GD=$(($rtot-$idm+1))
+#cancella paragrafo $GD
+sudo awk 'BEGIN{RS=""; ORS="\n\n"}; NR!='$GD'' /etc/burg.d/50_iso > ~/.burg-manager/50_iso
+sudo rm -rf /etc/burg.d/50_iso && sudo mv ~/.burg-manager/50_iso /etc/burg.d/
+sudo chmod a+x /etc/burg.d/50_iso
+sudo update-burg
+buc /usr/share/burg-manager/success.mc
+exit 0

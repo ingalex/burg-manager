@@ -1,0 +1,70 @@
+Installer Burg
+Paramètres
+I N S T A L L A T I O N  D E  B U R G
+Indiquez sur quel disque installer burg (défaut: sda)
+Cliquer ci-dessous pour lancer l'émulateur et choissir le thème de Burg, touches utilisées: ' T ' choix du thème, ' F ' mode dossier
+Installer burg
+burg-emu
+Selectionnez l'OS intiale
+Appliquer
+Choisir la résolution appropriée de votre moniteur:
+changer la résolution
+La durée de la pause est de
+secondes
+Changée la durée de la pause
+Appliquer les modifications
+Installations des Thèmes
+Désinstaller burg
+Désinstaller Burg, et réinstaller grub
+Désinstaller Burg
+Choissisez le disque
+Restaurer Grub
+Paramètres avancés
+Editer le fichier /etc/default/burg
+Ouvrir le fichier
+Activer
+Désactiver
+Changer
+Sauvegarder
+Pour protéger Burg avec un mot de passe, il est nécessaire de définir un utilisateur ci-dessous:
+Ajouter
+Eliminer
+Info
+LICENSE
+BURG-MANAGER HOMEPAGE
+BURG HOMEPAGE PROJECT
+BUC HOMEPAGE
+SITE de SICILINUX
+Cliquer deux fois sur une icone pour installer un thème
+Désinstaller des anciennes versions du noyau and related menuentry:
+Executer
+Restaurer les paramètres par défaut de Burg-Manager:
+Restaurer les paramètres
+Booter sur un iso
+Selectionner l'iso à booter
+Ajouter une entrée au menu
+Choissier le type d'iso
+Vérifier les mises à jour
+Executer
+Une nouvelle version de Burg-managerest disponible
+Voulez-vous mettre à jour votre version ?
+Oui
+Non
+Nom de l'administrateur
+Non d'utilisateur
+A la fin de la mise à jour Burg-Manager sera arrêté.
+Redémarrer automatiquement
+Aucune mise-à-jour disponible
+OK
+Selectionner l'iso que vous voulez désinstaller
+Supprimer
+Operation réalisé avec succès
+Restaurer Burg sur la MBR
+Paramètres basiques 
+After une mise à jour du noyau Burg est 
+remplacé par Grub.
+Cliquer sur "Restaurer Burg 
+dans la MBR" et vous règlerez le 
+problème.
+Aide
+Il y a eu une erreur pendant l'installation

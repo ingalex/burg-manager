@@ -1,0 +1,313 @@
+#!/bin/bash
+
+#   <label>
+#      echo "Seleziona la iso da bootare"
+#   </label>
+#      <file var="isourl" mode="open" filter="Iso(*.iso)">
+#      </file>
+ 
+# mount | grep ^/dev | cut -d' ' -f1
+# mount | grep ^/dev | cut -d' ' -f3
+#mount | grep /media/WindowsSeven | cut -f 1,5 --delimiter=' '
+iso=$(cat ~/.burg-manager/iso)
+#iso='/media/WindowsSeven/Download/ISO\ VARIE/kubuntu-10.04-desktop-i386.iso'
+isodir=$(dirname $iso)
+isodir0=$isodir
+mountpoint $isodir
+a=$?
+one=1
+zero=0
+echo $a
+if [ "$a" = "$one" ]; then
+echo "sto eseguendo il ciclo if"
+#ciclo per verificare se è un mountpoint (mountpoint -q)
+until [ $a -eq $zero ]; do
+echo "sto eseguendo il ciclo until"
+#temp=$(echo $isodir |sed 's:\/[a-zA-Z]*$::')
+#isodir=$temp
+cd $isodir
+cd ..
+isodir=$(pwd)
+mountpoint $isodir
+a=$?
+echo $a
+done
+fi
+#1 insuccesso 0 successo = è un mountpoint
+mountpoint=$isodir
+#devo ricavare la directory di mount che contiene la iso
+tipo=$(mount | grep $mountpoint | cut -f 1,5 --delimiter=' '| awk '{print $2}')
+partizione=$(mount | grep $mountpoint | cut -f 1,5 --delimiter=' '| awk '{print $1}')
+echo $tipo 
+echo $partizione
+
+if [ "$tipo" = "fuseblk" ]; then
+tipo="ntfs"
+fi
+
+function convert(){
+    step1=${1/\/dev\/sd/hd(}
+    step2=${step1/\/dev\/hd/hd(}
+    echo "(${step2:0:2}$((`printf "%d" "'${step2:3:1}"`-`printf "%d" "'a"`)),${step2:4})"
+}
+mpart=$(echo `convert $partizione`)
+
+#leggere lettere partizione 8 lettera convertirla in numero e sottrarre
+# lettera=$(echo $partizione|head -$i|tail -1|awk '{ print substr($0,8,1) }');
+# cascii=$(printf "%d\n" \'$lettera)
+# fnumber=$(($cascii-97))
+# snumber=$(echo $partizione|head -$i|tail -1|awk '{ print substr($0,9,1) }');
+#indirizzo iso
+isoaddr=$(echo $iso |sed 's:'$mountpoint'::')
+### leggere il tipo di iso dal file
+tipo_iso=$(cat ~/.burg-manager/tipoiso)
+isofolder=$(echo $isodir0 |sed 's:'$mountpoint'::')
+
+
+if [ ! -f /etc/burg.d/50_iso ]
+then sudo touch /etc/burg.d/50_iso
+echo >> /etc/burg.d/50_iso
+#      echo "echo >&2" >> /etc/burg.d/50_iso
+#      echo "echo "Adding Iso"'"s menuentries:" >&2" >> /etc/burg.d/50_iso
+#      echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+#      echo "cat << EOF" >> /etc/burg.d/50_iso
+fi
+
+if [ "$tipo_iso" = "Kubuntu Maverick 10.10" ]; then
+        echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"Kubuntu Maverick ISO on" $partizione""\"" --class kubuntu_iso {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "loopback loop" $mpart$isoaddr >> /etc/burg.d/50_iso
+	# echo "loopback loop" "(hd"$fnumber,$snumber")"$isoaddr >> /etc/burg.d/50_iso
+	echo "linux (loop)/casper/vmlinuz boot=casper iso-scan/filename="$isoaddr "noprompt" >> /etc/burg.d/50_iso 
+	echo "initrd (loop)/casper/initrd.lz" >> /etc/burg.d/50_iso
+	echo "}" >> /etc/burg.d/50_iso
+        echo >> /etc/burg.d/50_iso
+elif [ "$tipo_iso" = "Kubuntu Lucid 10.04" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"Kubuntu Lucid ISO on" $partizione""\"" --class kubuntu_iso {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "loopback loop" $mpart$isoaddr >> /etc/burg.d/50_iso
+	# echo "loopback loop" "(hd"$fnumber,$snumber")"$isoaddr >> /etc/burg.d/50_iso
+	echo "linux (loop)/casper/vmlinuz boot=casper iso-scan/filename="$isoaddr "noprompt" >> /etc/burg.d/50_iso 
+	echo "initrd (loop)/casper/initrd.lz" >> /etc/burg.d/50_iso
+	echo "}" >> /etc/burg.d/50_iso
+	echo >> /etc/burg.d/50_iso
+elif [ "$tipo_iso" = "Ubuntu Maverick 10.10" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"Ubuntu Maverick ISO on" $partizione""\"" --class ubuntu_iso {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "loopback loop" $mpart$isoaddr >> /etc/burg.d/50_iso
+	# echo "loopback loop" "(hd"$fnumber,$snumber")"$isoaddr >> /etc/burg.d/50_iso
+	echo "linux (loop)/casper/vmlinuz boot=casper iso-scan/filename="$isoaddr "noprompt" >> /etc/burg.d/50_iso 
+	echo "initrd (loop)/casper/initrd.lz" >> /etc/burg.d/50_iso
+	echo "}" >> /etc/burg.d/50_iso
+	echo >> /etc/burg.d/50_iso
+elif [ "$tipo_iso" = "Ubuntu Lucid 10.04" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"Ubuntu Lucid ISO on" $partizione""\"" --class ubuntu_iso {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "loopback loop" $mpart$isoaddr >> /etc/burg.d/50_iso
+	# echo "loopback loop" "(hd"$fnumber,$snumber")"$isoaddr >> /etc/burg.d/50_iso
+	echo "linux (loop)/casper/vmlinuz boot=casper iso-scan/filename="$isoaddr "noprompt" >> /etc/burg.d/50_iso 
+	echo "initrd (loop)/casper/initrd.lz" >> /etc/burg.d/50_iso
+	echo "}" >> /etc/burg.d/50_iso
+	echo >> /etc/burg.d/50_iso
+elif [ "$tipo_iso" = "Linux Mint 10 Julia" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"Linux Mint 10 Julia ISO on" $partizione""\"" --class mint_iso {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "loopback loop" $mpart$isoaddr >> /etc/burg.d/50_iso
+	# echo "loopback loop" "(hd"$fnumber,$snumber")"$isoaddr >> /etc/burg.d/50_iso
+	echo "linux (loop)/casper/vmlinuz boot=casper iso-scan/filename="$isoaddr "noprompt" >> /etc/burg.d/50_iso 
+	echo "initrd (loop)/casper/initrd.lz" >> /etc/burg.d/50_iso
+	echo "}" >> /etc/burg.d/50_iso
+	echo >> /etc/burg.d/50_iso
+elif [ "$tipo_iso" = "Linux Mint 9 Isadora" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"Linux Mint 9 Isadora ISO on" $partizione""\"" --class mint_iso {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "loopback loop" $mpart$isoaddr >> /etc/burg.d/50_iso
+	# echo "loopback loop" "(hd"$fnumber,$snumber")"$isoaddr >> /etc/burg.d/50_iso
+	echo "linux (loop)/casper/vmlinuz boot=casper iso-scan/filename="$isoaddr "noprompt" >> /etc/burg.d/50_iso 
+	echo "initrd (loop)/casper/initrd.lz" >> /etc/burg.d/50_iso
+	echo "}" >> /etc/burg.d/50_iso
+	echo >> /etc/burg.d/50_iso
+elif [ "$tipo_iso" = "Linux Mint 8 Helena" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"Linux Mint 8 Helena ISO on" $partizione""\"" --class mint_iso {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "loopback loop" $mpart$isoaddr >> /etc/burg.d/50_iso
+	# echo "loopback loop" "(hd"$fnumber,$snumber")"$isoaddr >> /etc/burg.d/50_iso
+	echo "linux (loop)/casper/vmlinuz boot=casper iso-scan/filename="$isoaddr "noprompt" >> /etc/burg.d/50_iso 
+	echo "initrd (loop)/casper/initrd.lz" >> /etc/burg.d/50_iso
+	echo "}" >> /etc/burg.d/50_iso
+	echo >> /etc/burg.d/50_iso
+elif [ "$tipo_iso" = "SystemRescueCd 1.6.2" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"SystemRescue on" $partizione""\"" --class systemrescue_iso {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "loopback loop" $mpart$isoaddr >> /etc/burg.d/50_iso
+	# echo "loopback loop" "(hd"$fnumber,$snumber")"$isoaddr >> /etc/burg.d/50_iso
+	echo "linux (loop)/isolinux/rescue64 isoloop="$isoaddr "setkmap=us dostartx docache" >> /etc/burg.d/50_iso 
+	echo "initrd (loop)/isolinux/initram.igz" >> /etc/burg.d/50_iso
+	echo "}" >> /etc/burg.d/50_iso
+	echo >> /etc/burg.d/50_iso
+elif [ "$tipo_iso" = "PartedMagic 5.6" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"PartedMagic 5.6 on" $partizione""\"" --class partedmagic_iso --group parted {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "set root="$mpart >> /etc/burg.d/50_iso
+        echo "loopback loop" $mpart$isoaddr >> /etc/burg.d/50_iso
+	# echo "loopback loop" "(hd"$fnumber,$snumber")"$isoaddr >> /etc/burg.d/50_iso
+	echo "linux (loop)/pmagic/bzImage edd=off noapic toram rw vga=791 loglevel=0 max_loop=256 keymap=us iso_location="$isofolder "setkmap=us dostartx docache" >> /etc/burg.d/50_iso 
+	echo "initrd (loop)/isolinux/initram.igz" >> /etc/burg.d/50_iso
+	echo "}" >> /etc/burg.d/50_iso
+	echo >> /etc/burg.d/50_iso
+elif [ "$tipo_iso" = "Clonezilla live 20100921" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"Clonezilla live 20100921 on" $partizione""\"" --class clonezilla_iso {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "set root="$mpart >> /etc/burg.d/50_iso
+        echo "loopback loop" $isoaddr >> /etc/burg.d/50_iso
+	echo "(loop)/live/vmlinuz1 boot=live hostname=lucid live-config quiet noswap nolocales edd=on nomodeset noprompt ocs_live_run=\"ocs-live-general\" ocs_live_extra_param=\"\" ocs_live_keymap=\"\" ocs_live_batch=\"no\" ocs_lang=\"\" ip=frommedia vga=normal nosplash findiso="$isoaddr >> /etc/burg.d/50_iso 
+	echo "initrd (loop)/live/initrd1.img" >> /etc/burg.d/50_iso
+	echo "}" >> /etc/burg.d/50_iso
+	echo >> /etc/burg.d/50_iso
+elif [ "$tipo_iso" = "PING 3.0.0" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"PING 3.0.0 on" $partizione""\"" --class ping_iso {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "set root="$mpart >> /etc/burg.d/50_iso
+        echo "loopback loop" $isoaddr >> /etc/burg.d/50_iso
+	echo "linux (loop)/kernel vga=normal devfs=nomount pxe ramdisk_size=33000 load_ramdisk=1 init=/linuxrc prompt_ramdisk=0 initrd=initrd.gz root=/dev/ram0 rw noapic lba" >> /etc/burg.d/50_iso 
+	echo "initrd (loop)/initrd.gz" >> /etc/burg.d/50_iso
+	echo "}" >> /etc/burg.d/50_iso
+        echo >> /etc/burg.d/50_iso
+elif [ "$tipo_iso" = "Memory test 4.10 (memtest86+)" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"Memory test (memtest86+) bin on" $partizione""\"" --class memtest_bin { " >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "set root="$mpart >> /etc/burg.d/50_iso
+        echo "linux16 "$isoaddr >> /etc/burg.d/50_iso
+	echo "}" >> /etc/burg.d/50_iso
+        echo >> /etc/burg.d/50_iso
+elif [ "$tipo_iso" = "Memory test 4.10 (memtest86+, serial console 115200)" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"Memory test (memtest86+, serial console 115200) bin on" $partizione""\"" --class memtest_bin  {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "set root="$mpart >> /etc/burg.d/50_iso
+        echo "linux16" $isoaddr "console=ttyS0,115200n8">> /etc/burg.d/50_iso
+	echo "}" >> /etc/burg.d/50_iso
+        echo >> /etc/burg.d/50_iso
+elif [ "$tipo_iso" = "Netboot.ME" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"Netboot.ME on" $partizione""\"" --class netboot.me {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "set root="$mpart >> /etc/burg.d/50_iso
+        echo "loopback loop" $isoaddr >> /etc/burg.d/50_iso
+	echo "linux16 (loop)/GPXE.KRN" >> /etc/burg.d/50_iso 
+	echo "initrd (loop)/initrd.gz" >> /etc/burg.d/50_iso
+	echo "}" >> /etc/burg.d/50_iso
+        echo >> /etc/burg.d/50_iso
+elif [ "$tipo_iso" = "Redobackup 0.9.7" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"Redobackup 0.9.7 on" $partizione""\"" --class redobackup_iso {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "set root="$mpart >> /etc/burg.d/50_iso
+        echo "loopback loop" $isoaddr >> /etc/burg.d/50_iso
+	echo "linux (loop)/boot/bzImage fromiso="$isoaddr "lang=en kmap=us mode=vesa" >> /etc/burg.d/50_iso
+        echo "initrd (loop)/opt/core" >> /etc/burg.d/50_iso 
+        echo "}" >> /etc/burg.d/50_iso
+        echo >> /etc/burg.d/50_iso 
+elif [ "$tipo_iso" = "Aptosid 2010-02 kde amd64" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"Aptosid 2010-02-keres-kde-lite-amd64-201009132215 on" $partizione""\"" --class aptosid_iso {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "set root="$mpart >> /etc/burg.d/50_iso
+        echo "loopback loop" $isoaddr >> /etc/burg.d/50_iso
+	echo "linux (loop)/boot/vmlinuz0.amd boot=fll fromiso="$isoaddr "lang=us tz=Italy/Rome" >> /etc/burg.d/50_iso
+        echo "initrd (loop)/boot/initrd0.amd" >> /etc/burg.d/50_iso 
+        echo "}" >> /etc/burg.d/50_iso
+        echo >> /etc/burg.d/50_iso 
+elif [ "$tipo_iso" = "Aptosid 2010-02 kde x86" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"Aptosid 2010-02-keres-kde-lite-x86-201009132215 on" $partizione""\"" --class aptosid_iso {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "set root="$mpart >> /etc/burg.d/50_iso
+        echo "loopback loop" $isoaddr >> /etc/burg.d/50_iso
+	echo "linux (loop)/boot/vmlinuz0.686 boot=fll fromiso="$isoaddr "lang=us tz=Italy/Rome" >> /etc/burg.d/50_iso
+        echo "initrd (loop)/boot/initrd0.686" >> /etc/burg.d/50_iso 
+        echo "}" >> /etc/burg.d/50_iso
+        echo >> /etc/burg.d/50_iso 
+elif [ "$tipo_iso" = "Lineduc 2.0" ]; then
+	echo "echo \"Adding" "$""(""egrep menu[e]ntry" "$"0 "|" "cut -d""'""\"""'" "-f2)""\"" ">&2" >> /etc/burg.d/50_iso
+	echo "cat << EOF" >> /etc/burg.d/50_iso
+	echo "menuentry \"Lineduc 2.0 ISO on" $partizione""\"" --class ubuntu_iso {" >> /etc/burg.d/50_iso
+	      if [ "$tipo" = "ntfs" ]; then
+	      echo "insmod" $tipo >> /etc/burg.d/50_iso
+	      fi
+	echo "loopback loop" $mpart$isoaddr >> /etc/burg.d/50_iso
+	# echo "loopback loop" "(hd"$fnumber,$snumber")"$isoaddr >> /etc/burg.d/50_iso
+	echo "linux (loop)/casper/vmlinuz boot=casper iso-scan/filename="$isoaddr "quiet splash noprompt" >> /etc/burg.d/50_iso 
+	echo "initrd (loop)/casper/initrd.lz" >> /etc/burg.d/50_iso
+	echo "}" >> /etc/burg.d/50_iso
+	echo >> /etc/burg.d/50_iso
+fi
+fi 
+
+sudo chmod a+x /etc/burg.d/50_iso
+sudo update-burg
+buc /usr/share/burg-manager/success.mc
+exit 0

@@ -1,0 +1,29 @@
+#!/bin/bash
+# os=$(grep -i -e menuentry /boot/burg/burg.cfg | awk -F[\'\"] '{print $2}'| sed '/./!d'|wc -l)
+# linenum=$os
+# while (( linenum >="0" )) ;
+# do
+# input[$linenum]=$(grep -i -e menuentry /boot/burg/burg.cfg | awk -F[\'\"] '{print $2}'| sed '/./!d'| head -$linenum | /usr/bin/tail -1)
+# echo ${input[$linenum]} >> ~/.burg-manager/tempos 
+# i=$(($linenum-1))
+# linenum=$i
+# done
+# df=$(awk -F "GRUB_DEFAULT=" '{print $2}' /etc/default/burg)
+# dfrm=$(($df+1))
+# # echo "df=" $df
+# # echo "dfrm=" $dfrm
+# sed -i '/'${input[$dfrm]}'/d' ~/.burg-manager/tempos 
+# echo ${input[$dfrm]} >> ~/.burg-manager/os 
+# cat ~/.burg-manager/tempos >> ~/.burg-manager/os
+# cat ~/.burg-manager/os
+
+os=$(grep -i -e menuentry /boot/burg/burg.cfg | awk -F[\'\"] '{print $2}'| sed '/./!d'|wc -l)
+linenum=$os
+while (( linenum >="0" )) ;
+do
+input[$linenum]=$(grep -i -e menuentry /boot/burg/burg.cfg | awk -F[\'\"] '{print $2}'| sed '/./!d'| head -$linenum | /usr/bin/tail -1)
+echo ${input[$linenum]}
+i=$(($linenum-1))
+linenum=$i
+done
+exit 0

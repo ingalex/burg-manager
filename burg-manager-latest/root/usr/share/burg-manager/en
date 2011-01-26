@@ -1,0 +1,70 @@
+Burg-installer
+Parameters
+B U R G - I N S T A L L E R
+Specify the hard disk where to install/restore burg (default: sda)
+Click here to emulate and to choose Burg theme, useful buttons: "T" choose theme, "F" folding mode
+burg-install
+burg-emu
+Select default OS to boot
+Apply
+Choose the suitable resolution for your monitor and your video card:
+Set screen resolution
+Now timeout is set to
+seconds
+Set timeout
+Apply changes
+Themes Installer
+Remove Burg
+Remove Burg, and restore Grub
+Remove Burg
+Choose hard disk
+Restore Grub
+Advanced Parameters
+Edit directly file /etc/default/burg
+Open file
+Enable
+Disable
+Change
+Saved
+To protect Burg with a password you must specify a username below: 
+Add
+Remove
+Info
+LICENSE
+BURG-MANAGER HOMEPAGE
+BURG HOMEPAGE PROJECT
+BUC HOMEPAGE
+SICILINUX HOMEPAGE
+Click twice on an icon to install a theme
+Remove previous kernel versions and related menuentry:
+Execute
+Restore default settings of the burg-manager:
+Restore settings
+Boot iso
+Select iso to boot
+Add menuentry
+Set iso type
+Check updates availability
+Execute
+It's avaible a new Burg-manager version
+Do you want to upgrade?
+Yes
+No
+admin name
+user name
+When update is finished burg-manager program will be
+automatically restarted
+No updates available
+OK
+Select iso of menuentry that you want to remove 
+Remove
+Operation done successfully
+Restore Burg into MBR
+Basic Parameters 
+After a kernel update Burg is 
+overwritten by Grub into MBR.
+Clicking on "Restore Burg 
+into MBR" you can fix this 
+problem.
+Help
+An error has occurred during installation

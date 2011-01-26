@@ -1,0 +1,15 @@
+#!/bin/bash
+a=$(pidof buc|awk '{print $1}')
+b=$(pidof buc|awk '{print $2}')
+if [ "$a" > "$b" ]; then
+kill $b
+elif [ "$b" > "$a" ]; then
+kill $a
+fi
+exit 0 
+# if [ "$a" -gt "$b" ]; then
+# kill $b
+# elif [ "$b" -gt "$a" ]; then
+# kill $a
+# fi
+ 

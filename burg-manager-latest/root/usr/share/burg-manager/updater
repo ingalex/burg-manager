@@ -1,0 +1,13 @@
+#!/bin/bash
+cd ~/.burg-manager
+wget http://www.sourceslist.eu/ccount/click.php?id=25
+now=$(cat ~/.burg-manager/click.php?id=25|tr -d ".")
+rm -rf ~/.burg-manager/click.php?id=25
+installed=$(cat /usr/share/burg-manager/version)
+if [ "$now" -gt "$installed" ] ; 
+then
+buc /usr/share/burg-manager/updateavaible.mc
+else
+buc /usr/share/burg-manager/updatenotavaible.mc
+fi
+exit 0

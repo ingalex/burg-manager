@@ -1,0 +1,71 @@
+Instalator Burg
+Parametri
+I N S T A L A T O R - B U R G
+Specificati hard discul pe care sã fie instalat Burg (implicit: sda)
+Click aici pentru a simula si schimba tema Burg, butoane utile: "T" alege temã, "F" folding mode
+instaleazã burg
+burg-emu
+Selectati sistemul de operare implicit pentru boot
+Aplicã
+Alegeti rezolutia potrivitã pentru monitorul si placa video:
+Seteazã rezolutia ecranului
+Timpul de pauzã este
+secunde
+Schimbã timp de pauzã
+Aplicã schimbãrile
+Instalator teme
+Sterge Burg
+Sterge Burg si restaureazã Grub
+sterge Burg
+Alege hard disc
+Restaureazã Grub
+Parametri avansati
+Editeazã direct fisierul /etc/default/burg
+Deschide fisier
+Activeazã
+Dezactiveazã
+Schimbã
+Salveazã
+Pentru a proteja Burg cu parolã trebuie sã specificati un nume de utilizator de mai jos:
+Adaugã
+Sterge
+Info
+LICENTÃ
+SITE-UL BURG-MANAGER
+PAGINA PROIECTULUI BURG-MANAGER
+SITE-UL BUC
+SITE-UL SICILINUX
+Dublu click pentru a instala o temã
+Sterge versiunile anterioare de kernel si cele legate de meniu:
+Executã
+Executã
+Restaureazã setările implicite a burg-manager:
+Restaureazã setari 
+Booteazã iso
+Selectati iso pentru boot
+Adaugati meniu
+Specificati tipul iso
+Verificã dacã existã date noi
+Executã
+O nouã versiune Burg-manager este disponibilã
+Doriti sã actualizati ?
+Da
+Nu
+nume administrator
+nume utilizator
+Cand actualizarea este terminatã programul burg-manager
+se va restarta automat
+Nu existã actualizari disponibile
+OK
+Selectati iso din meniu care doriti sa fie eliminate
+Sterge
+Operatiunea fost facutã cu success
+Restaureaza Burg in MBR
+Parametrii de bază
+Dupã o actualizare de kernel
+Burg este suprascris de Grub in MBR.
+Făcând clic pe "Restaureazã Burg in MBR" 
+puteţi rezolva această
+problemă.
+Ajutor
+O eroare a aparut in timpul instalarii

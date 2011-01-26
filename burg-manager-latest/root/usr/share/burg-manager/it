@@ -1,0 +1,70 @@
+Burg-installer
+Parametri
+I N S T A L L A Z I O N E - B U R G
+Indicare il disco dove installare/ripristinare burg (default: sda)
+Click di seguito per emulare e scegliere il tema di burg, tasti utili: ' T ' scegli il tema, ' F ' folding mode
+burg-install
+burg-emu
+Seleziona OS iniziale
+Applica
+Scegli la risoluzione adatta al tuo monitor:
+Cambia risoluzione
+Il timeout e' impostato su
+secondi
+Cambia timeout
+Applica modifiche
+Installazione Temi
+Rimuovere burg
+Elimina Burg, e ripristina grub
+rimuovi burg
+Scegliere il disco
+Ripristina grub
+Parametri avanzati
+Edita direttamente il file /etc/default/burg
+Apri file
+Abilita
+Disabilita
+Cambia
+Salvato
+Per proteggere il Burg con password e' necessario specificare un nome utente qui di seguito:
+Aggiungi
+Elimina
+Info
+LICENSE
+SITO BURG-MANAGER
+BURG HOMEPAGE PROJECT
+SITO BUC
+SITO SICILINUX
+Doppio click su una icona per installare un tema
+Per eliminare le versioni precedenti del kernel e le relative menuentry cliccare qui di seguito:
+Esegui         
+Per ripristinare le impostazioni predefinite del burg-manager cliccare qui di seguito:
+Ripristina impostazioni
+Boot iso
+Seleziona la iso da bootare
+Aggiungi menuentry
+Imposta il tipo di iso
+Verifica la disponibilita' di aggiornamenti
+Esegui
+E' disponibile una nuova versione del burg-manager
+Vuoi effettuare l'aggiornamento?
+Si
+No
+nome amministratore
+nome utente
+Dopo l'aggiornamento il programma sara'
+riavviato automaticamente
+Nessun aggiornamento disponibile
+OK
+Seleziona la iso per la quale vuoi rimuovere la menuentry
+Rimuovi
+Operazione effettuata con successo
+Ripristina il Burg nel MBR
+Parametri base
+In caso di aggiornamento del kernel il 
+Burg viene sovrascritto dal Grub nel MBR.
+Cliccando su "Ripristina il Burg nel MBR"
+e' possibile porre rimedio a questo 
+inconveniente.
+Aiuto
+E' occorso un errore durante l'installazione

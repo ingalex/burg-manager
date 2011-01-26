@@ -1,0 +1,70 @@
+Burg-telepítõ
+Paraméterek
+B U R G - T E L E P Í T Õ
+Adja meg melyik merevlemezre szeretné telepíteni a BURG-ot. (alapértelmezett: sda)
+Ide kattintva emulálhatja a BURG-ot és kiválaszthatja a témát. Hasznos billentyûk: "T" téma váltás, "F" folding mód
+burg telepítése
+burg-emu
+Alapértelmezett operációs rendszer:
+Alkalmaz
+Válassza ki a megfelelõ felbontást:
+Felbontás beállítása
+A várakozási idõ: 
+másodperc
+Várakozási idõ beállítása
+Változások alkalmazása
+Téma telepítõ
+Burg eltávolítása
+A Burg eltávolítása és a Grub visszaállítása
+Burg eltávolítása
+Merevlemez kiválasztása:
+Grub visszaállítása
+Egyéb Paraméterek
+Az /etc/default/burg fájl közvetlen szerkesztése
+Fájl megnyitása
+Engedélyezve
+Tiltva
+Megváltoztatás
+Mentett
+Ahhoz, hogy a BURG-ot jelszóval védhesse meg kell adnia egy felhasználónevet:
+Hozzáadás
+Eltávolítás
+Információ
+LICENC
+BURG-MANAGER WEBOLDAL
+BURG WEBOLDAL
+BUC WEBOLDAL
+SICILINUX WEBOLDAL
+A témák dupla kattintásra települnek
+Elõzõ kernelek és visszamaradt menübejegyzések törlése
+Futtatás
+A burg-manager alapértékeinek visszatöltése:
+Beállítások visszaállítása
+Bootolás képfájlról
+Képfájl kiválasztása
+Menübejegyzés hozzáadása
+Képfájl típusának megadása
+Frissítések ellenõrzése
+Futtatás
+Elérhetõ egy újabb Burg-manager verzió
+Szeretné frissíteni az alkalmazást?
+Igen
+Nem
+Admin neve
+Felhasználó neve
+A frissítés végeztével az alkalmazás
+induljon újra automatikusan
+Nincs elérhetõ frissítés
+OK
+Válassza ki az eltávolítandó bejegyzést
+Eltávolítás
+A mûvelet sikeresen lefutott
+Burg visszaállítása az MBR-be
+Alap paraméterek
+Minden kernel frissítés után a
+Grub felülírja a Burgot az MBR-ben.
+A "Burg visszaállítása az MBR-be" gombra
+kattintva könnyedén javíthatja ezt a 
+problémát.
+Segítség
+Egy hiba történt a telepítés során

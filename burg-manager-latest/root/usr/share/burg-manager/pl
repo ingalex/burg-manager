@@ -1,0 +1,70 @@
+Burg-instalator
+Parametry
+B U R G - I N S T A L A T O R
+Okresl dysk gdzie ma byc zainstalowany burg (domyslnie: sda)
+Kliknij tutaj aby emulowac i wybrac motyw Burg, przydatne klawisze: "T" wybierz motyw, "F" folding mode
+Instalacja Burg
+burg-emu
+Wybierz domyslny OS do uruchomienia
+Zastosuj
+Wybierz odpowiednia rozdzielczosc monitora i karty graficznej:
+Ustaw rozdzielczosc ekranu
+Obecnie czas oczekiwania jest ustawiony na
+sekund
+Ustaw czas oczekiwania
+Zastosuj zmiany
+Instalator motywow
+Usun Burg
+Usun Burg i przywroc Grub
+Usun Burg
+Wybierz dysk twardy
+Przywroc Grub
+Zaawansowane parametry
+Edytuj plik /etc/default/burg
+Otworz plik
+Wlaczony
+Wylaczony
+Zmien
+Zapisz
+Aby zabezpieczyc Burg haslem musisz podac ponizej nazwe uzytkownika:
+Dodaj
+Usun
+Info
+LICENCJA
+STRONA BURG-MANAGER
+BURG STRONA PROJEKTU
+STRONA BUC
+STRONA SICILINUX
+Kliknij dwukrotnie na ikonie aby zainstalowac motyw
+Usun poprzednie wersje jadra:
+Wykonaj
+Przywroc domyslne ustawienia burg-managera:
+Przywroc ustawienia
+Boot iso
+Wybierz iso do bootowania
+Dodaj menu wejsciowe
+Wybierz typ iso
+Sprawdz dostepnosc aktualizacji
+Wykonaj
+Dostepna jest nowa wersja Burg-manager
+Czy chcesz zaktualizowac?
+Tak
+Nie
+nazwa administratora
+nazwa użytkownika
+Po zakonczeniu aktualizacji program burg-manager
+automatycznie sie zrestartuje
+Brak dostepnych aktualizacji
+OK
+Wybierz iso z menu, ktore chcesz usunac
+Usun
+Operacja zakonczona sukcesem
+Przywroc Burg w MBR
+Podstawowe parametry
+Po aktualizacji jądra Burg jest
+nadpisany przez GRUB w MBR.
+Kliknij na "Przywroc Burg
+w MBR" aby naprawic ten
+problem.
+Pomoc 
+Wystapil blad podczas instalacji

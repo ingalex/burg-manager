@@ -1,0 +1,24 @@
+#!/bin/bash
+OK=0
+disk=$(cat ~/.burg-manager/disk)
+xterm -e "sudo add-apt-repository ppa:bean123ch/burg && sudo apt-get update && sudo apt-get install burg burg-themes burg-emu"
+if [ $? -eq $OK ]
+   then
+   xterm -e "sudo burg-install $disk && sudo update-burg"
+   if [ $? -eq $OK ]
+   then
+   buc /usr/share/burg-manager/success.mc
+   else
+   buc /usr/share/burg-manager/unsuccess.mc
+   fi
+else
+buc /usr/share/burg-manager/unsuccess.mc
+fi
+exit 0
+
+
+
+
+
+
+done

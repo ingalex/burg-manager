@@ -1,0 +1,10 @@
+#!/bin/bash
+rootpw=`zenity --title="Root-Password" --window-icon=/usr/share/burg-manager/images/admin.png --text='please type root password' --hide-text="" --entry`
+if [ -f ~/.burg-manager/language ]
+then
+echo $rootpw | sudo -S buc /usr/share/burg-manager/burg-manager.mc
+elif [ ! -d ~/.burg-manager ]; then
+mkdir ~/.burg-manager
+echo $rootpw | sudo -S buc /usr/share/burg-manager/langchooser.mc
+fi
+unset rootpw

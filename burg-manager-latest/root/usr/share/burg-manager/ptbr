@@ -1,0 +1,70 @@
+Instalar
+Configurações
+I N S T A L A Ç Ã O  -  D O  -  B U R G
+Indique o disco onde o burg será instalado (default: sda)
+Clique abaixo para emular e escolher um tema para o burg. Teclas: ' T ' escolhe o tema, ' F ' modo compacto
+instalar o burg
+burg-emu
+Selecione o OS inicial
+Aplicar
+Escolha a melhor resolução para seu monitor:
+Alterar resolução
+O tempo de espera é de
+segundos
+Alterar tempo de espera
+Aplicar modificações
+Instalação de temas
+Remover Burg
+Excluir Burg e reinstalar o grub
+remover Burg
+selecione o disco
+Reinstalar grub
+Configurações avançadas
+Editar diretamente o arquivo /etc/default/burg
+Abrir arquivo
+Habilitar
+Desabilitar
+Alterar
+Salvar
+Para proteger o Burg com senha é necessário especificar um nome de usuário abaixo:
+Adicionar
+Excluir
+Info
+LICENÇA
+SITE DO BURG-MANAGER
+HOMEPAGE DO PROJETO BURG
+SITE DO BUC
+SITE DO SICILINUX
+Dê um duplo clique em um ícone para instalar um tema
+Remover versões anteriores do Kernel e suas respectivas entradas no menu:
+Executar
+Restaurar as configurações padrão do burg-manager:
+Restaurar as configuracões
+Boot pela iso
+Selecione uma iso para boot
+Adicionar a entrada no menu
+Escolha o tipo da iso
+Verifique se há atualizações disponíveis
+verificar
+Está disponível uma nova versão do burg-manager
+Gostaria de fazer o upgrade?
+Sim
+Não
+Nome do administrador
+Nome do usuário
+Quando a atualização terminar, o burg-manager será
+automaticamente reiniciado
+Nenhuma atualização disponível
+OK
+Escolha a iso que você deseja remover do menu
+Remover
+Operação realizada com sucesso
+Restaurar o Burg na MBR
+Configurações básicas 
+Depois de atualizar o kernel, o Burg é
+substituído pelo Grub na MBR.
+Clique em "Restaurar o Burg 
+na MBR" para corrigir este 
+problema.
+Ajuda
+Ocorreu um erro durante a instalação

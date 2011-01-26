@@ -1,0 +1,70 @@
+Burg-installer
+Parameter
+P E M A S A N G - B U R G
+Pilih hard disk dimana anda akan memasang burg (default: sda)
+Klik disini untuk melihat dan memilih tema pada Burg, tekan tombol: "T" memilih tema, "F" folding mode
+burg-install
+burg-emu
+Pilih default OS untuk booting
+Terapkan
+Pilih resolusi yang cocok dengan layar monitor dan VGA anda:
+Atur resolusi layar
+Sekarang lama timeout di atur ke 
+Detik
+Atur timeout
+Terapkan pengaturan
+Pemasang tema
+Hapus Burg
+Hapus Burg, dan kembalikan Grub
+hapus Burg
+Pilih hard disk
+kembalikan Grub
+Parameter tambahan
+Edit langsung file /etc/default/burg
+Buka file
+Aktifkan
+Non Aktifkan
+Ubah
+Saved
+Untuk mengaktifkan BURG dengan pasword anda harus memasukkan username:
+Tambah
+Hapus
+Info
+LICENSE
+BURG-MANAGER HOMEPAGE
+BURG HOMEPAGE PROJECT
+BUC HOMEPAGE
+SICILINUX HOMEPAGE
+Klik icon dua kali untuk memasang tema yang anda inginkan
+Hapus kernel versi sebelumnya dan juga menuentry yang bersangkutan:
+Lakukan
+Mengembalikan pengaturan standar dari burg-manager:
+Kembalikan pengaturan standar
+Boot iso
+Pilih iso untuk di boot
+Tambahkan menuentry
+Pilih tipe iso
+Cek update terbaru
+Lakukan
+Telah tersedia versi terbaru dari burg-manager
+Apakah anda ingin upgrade?
+Ya
+Tidak
+Nama administrator
+Nama user
+Ketika update program telah selesai, burg-manager akan
+restart secara otomatis
+Tidak ada update tersedia
+OK
+Pilih iso dari menuentry yang akan anda hapus
+Hapus
+Operasi selesai dengan baik
+Pembalikan Burg pada MBR
+Parameter Standar 
+Setelah update kernel, Burg akan
+tertimpa oleh Grub kedalam MBR.
+Dengan mengklik pada "Kembalikan Burg 
+pada MBR" anda dapat memperbaiki ini
+Permasalahan.
+Pertolongan
+Sebuah kesalahan telah terjadi selama instalasi

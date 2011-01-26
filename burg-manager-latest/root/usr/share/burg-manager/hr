@@ -1,0 +1,70 @@
+Burg-instaliraj
+Opcije
+B U R G - I N S T A L  E R
+Odaberite disk na koji cete instalirati/reinstalirati burg (default: sda)
+Kliknite ovdje na emulator i odaberite Burg temu, pomocne tipke: "T" odaberite temu, "F" folding mode
+Instaliraj Burg
+burg-emu
+Odaberite defaultni OS pri pokretanju sustava
+Primjeni
+Odaberite prikladnu rezoluciju za monitor i graficku karticu
+Odaberite rezoluciju monitora
+Vrijeme do pokretanja sustava je
+sekundi
+Namjesti vrijeme do pokretanja sustava
+Primjeni izmjene
+Dodatne teme
+Burg-deinstaliraj
+Deinstaliraj Burg, i vrati Grub
+Deinstaliraj Burg
+Odaberite hard disk
+Vrati Grub
+Napredne Opcije
+Editiraj file /etc/default/burg
+Otvori file
+Omoguci
+Onemoguci
+Promijeni
+Spremi promjene
+Da bi ste zastitili Burg lozinkom morate navesti korisnicko ime ispod: 
+Dodaj
+Ukloni
+Info
+LICENCA
+BURG-MANAGER HOMEPAGE
+BURG HOMEPAGE PROJEkT
+BUC HOMEPAGE
+SICILINUX HOMEPAGE
+Dva puta klikni na ikonu za instalaciju teme!
+Ukloni prijasnje verzije kernela i ostale stavke izbornika:
+Izvrsi
+Povrati defaultne postavke burg-managera:
+Vrati postavke
+Boot iso
+Odaberite iso sliku koju zelite podici (bootati)
+Dodajte u Izbornik
+Odaberite vrstu iso slike
+Provjerite je li dostupna nadogradnja programa
+Provjeri
+Dostupna je nove verzija Burg-managera
+Zelite li nadograditi Burg-manager?
+Da
+Ne
+admin korisnicko ime
+korisnicko ime
+Kada je nadogradnja zavrsena burg-manager ce se
+automatski ponovno pokrenuti
+Nema novih nadogradnji programa
+Uredu
+Odaberite iso sliku koju zelite ukloniti iz Izbornika 
+Ukloni
+Izmjene uspjesno izvrsene
+Povrati Burg u MBR
+Osnovne Opcije
+Nakon nadogradnje kernela Burg je
+prebrisao Grub preko MBR.
+Klikom na "Povrati Burg 
+u MBR" mozete popraviti taj 
+problem.
+Pomoc
+Doslo je do pogreske tijekom instalacije

@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ -d ~/.burg-manager ]
+then sudo rm -rf /root/.burg-manager ~/.burg-manager/listaiso ~/.burg-manager/lol ~/.burg-manager/os ~/.burg-manager/risoluzioni ~/.burg-manager/risoluzioni1 ~/.burg-manager/iso ~/.burg-manager/tipoiso
+else
+mkdir ~/.burg-manager
+fi 
+cd /usr/share/burg-manager/
+sudo rm -rf 1* 2* 3* 4* 5* 6* 7* 8* 9* 0*
+exit 0

@@ -1,0 +1,13 @@
+#!/bin/bash
+rtot=$(wc -l  ~/.burg-manager/os | awk '{print $1}')
+osd=$(cat ~/.burg-manager/defaultos)  
+OSYS=$(grep -n -i -x "$osd" ~/.burg-manager/os| awk '{print $1}'| tr -cd [:digit:])
+GD=$(($rtot-$OSYS))
+sudo sed -i 's/GRUB_DEFAULT=[0-9]*/GRUB_DEFAULT='$GD'/g' /etc/default/burg
+# for (( I=0 ; I<${#input[*]} ; I++ ))
+# do
+# if [ "${input[$I]}" = "$operativesystem" ]; then
+# GD=$(($I-1))
+# xterm -e "sudo sed -i 's/GRUB_DEFAULT=[0-9]*/GRUB_DEFAULT=$GD/g' /etc/default/burg"
+# fi    
+# done 

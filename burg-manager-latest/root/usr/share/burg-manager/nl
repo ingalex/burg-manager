@@ -1,0 +1,69 @@
+Burg installeren
+Instellingen
+B U R G - I N S T A L L E R E N
+Geef aan op welke harde schijf burg geïnstalleerd moet worden (standaard: sda)
+Burg emuleren, om b.v. thema's te testen (handige sneltoetsen: 'T' - Thema kiezen; 'F' - Folding-Modus)
+Burg installeren
+Burg-Emulator
+Selecteer standaard op te starten besturingssysteem:
+Toepassen
+Resolutie (afhankelijk van monitor en videokaart):
+Resolutie vastleggen
+Time-out (momenteel 
+seconden)
+Time-out vastleggen
+Veranderingen toepassen
+Thema's
+Burg deïnstalleren
+Burg verwijderen en Grub terugzetten
+Burg deïnstalleren
+Kies harde schijf:
+Grub terugzetten
+Geavanceerde instellingen
+Direct configuratiebestand bewerken (/etc/default/burg)
+Bestand openen
+Inschakelen
+Uitschakelen
+Wijzigen
+Opgeslagen
+Om Burg te beveiligen met een wachtwoord moet u hieronder een gebruikersnaam opgeven:
+Toevoegen
+Verwijderen
+Info
+LICENTIE
+SITE BURG-MANAGER
+BURG HOMEPAGE PROJECT
+SITE BUC
+SITE SICILINUX
+Klik twee keer op een pictogram om het thema te installeren
+Verwijder oudere kernelversies en bijbehorende menu-items:
+Uitvoeren
+Herstel standaardinstellingen van burg-manager:
+Instellingen herstellen
+Iso opstarten
+Selecteer op te starten iso
+Menu-item toevoegen
+Iso type instellen
+Controleer op updates
+Uitvoeren
+Er is een nieuwe versie beschikbaar
+Wilt u upgraden?
+Ja
+Nee
+beheerdersnaam
+gebruikersnaam
+Na het updaten zal het programma
+automatisch opnieuw opgestart worden
+Geen updates beschikbaar
+OK
+Selecteer iso van het menu-item dat u wilt verwijderen
+Verwijderen
+Opdracht succesvol uitgevoerd
+Burg herstellen in MBR
+Basisparameters 
+Na een kernel update wordt Burg
+in het MBR overschreven door Grub.
+Dit kan herstelt worden door te klikken
+op "Burg herstellen in MBR".
+Help
+Een fout is opgetreden tijdens de installatie

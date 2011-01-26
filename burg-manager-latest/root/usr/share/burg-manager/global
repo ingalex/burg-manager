@@ -1,0 +1,6 @@
+#!/bin/bash
+ 
+cd /usr/share/burg-manager/
+./killlang
+./cleaner
+exit 0

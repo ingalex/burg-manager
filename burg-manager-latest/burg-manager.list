@@ -1,0 +1,175 @@
+%product burg-manager 
+%description burg-manager is a very intuitive gui which has the aim to simplify the installation and configuration of Burg.
+%version 1.1.0
+%copyright GPL
+%vendor www.sourceslist.eu
+%readme README
+%license LICENSE
+%packager Ingalex
+%postinstall <<EOF
+#!/bin/sh
+chmod a+x /usr/bin/burg-manager
+set -e
+# Automatically added by dh_installmenu
+if [ "$$1" = "configure" ] && [ -x "`which update-menus 2>/dev/null`" ]; then
+	update-menus
+fi
+# End automatically added section
+# Automatically added by dh_installmime
+if [ "$$1" = "configure" ] && [ -x "`which update-mime 2>/dev/null`" ]; then
+	update-mime
+fi
+# End automatically added section
+# Automatically added by dh_makeshlibs
+if [ "$$1" = "configure" ]; then
+	ldconfig
+fi
+# End automatically added section
+sudo rm -rf /root/.burg-manager ~/.burg-manager ~/.local/share/applications/burg-manager*.desktop
+EOF
+%postremove <<EOF
+#!/bin/sh
+set -e
+# Automatically added by dh_makeshlibs
+if [ "$$1" = "remove" ]; then
+	ldconfig
+fi
+# End automatically added section
+# Automatically added by dh_installmime
+if which update-mime >/dev/null 2>&1; then update-mime; fi
+# End automatically added section
+# Automatically added by dh_installmenu
+if [ -x "`which update-menus 2>/dev/null`" ]; then update-menus ; fi
+# End automatically added section
+EOF
+%requires buc >= 0.5.2
+%requires xterm >= 256
+%requires zenity >= 2.30.0
+%requires libqtgui4 >= 4.7.0
+
+d 755 root root /usr -
+d 755 root root /usr/share -
+d 755 root root /usr/share/burg-manager -
+f 644 root root /usr/share/burg-manager/pl ./root/usr/share/burg-manager/pl
+f 644 root root /usr/share/burg-manager/es ./root/usr/share/burg-manager/es
+f 644 root root /usr/share/burg-manager/se ./root/usr/share/burg-manager/se
+f 644 root root /usr/share/burg-manager/de ./root/usr/share/burg-manager/de
+f 755 root root /usr/share/burg-manager/grub_cmdline ./root/usr/share/burg-manager/grub_cmdline
+f 644 root root /usr/share/burg-manager/langchooser.mc ./root/usr/share/burg-manager/langchooser.mc
+d 755 root root /usr/share/burg-manager/doc -
+d 755 root root /usr/share/burg-manager/doc/burg-manager -
+f 644 root root /usr/share/burg-manager/doc/burg-manager/copyright ./root/usr/share/burg-manager/doc/burg-manager/copyright
+f 755 root root /usr/share/burg-manager/updater ./root/usr/share/burg-manager/updater
+f 755 root root /usr/share/burg-manager/isoremover ./root/usr/share/burg-manager/isoremover
+f 755 root root /usr/share/burg-manager/global ./root/usr/share/burg-manager/global
+f 644 root root /usr/share/burg-manager/it ./root/usr/share/burg-manager/it
+f 644 root root /usr/share/burg-manager/en ./root/usr/share/burg-manager/en
+f 644 root root /usr/share/burg-manager/ro ./root/usr/share/burg-manager/ro
+f 755 root root /usr/share/burg-manager/killpop ./root/usr/share/burg-manager/killpop
+f 644 root root /usr/share/burg-manager/fr ./root/usr/share/burg-manager/fr
+f 644 root root /usr/share/burg-manager/hr ./root/usr/share/burg-manager/hr
+f 644 root root /usr/share/burg-manager/updatenotavaible.mc ./root/usr/share/burg-manager/updatenotavaible.mc
+f 644 root root /usr/share/burg-manager/help1.mc ./root/usr/share/burg-manager/help1.mc
+f 755 root root /usr/share/burg-manager/listaos ./root/usr/share/burg-manager/listaos
+f 755 root root /usr/share/burg-manager/listaiso ./root/usr/share/burg-manager/listaiso
+f 755 root root /usr/share/burg-manager/notifier ./root/usr/share/burg-manager/notifier
+f 755 root root /usr/share/burg-manager/installer ./root/usr/share/burg-manager/installer
+f 644 root root /usr/share/burg-manager/id ./root/usr/share/burg-manager/id
+f 644 root root /usr/share/burg-manager/license.mc ./root/usr/share/burg-manager/license.mc
+f 644 root root /usr/share/burg-manager/ptpt ./root/usr/share/burg-manager/ptpt
+f 755 root root /usr/share/burg-manager/sceltaos ./root/usr/share/burg-manager/sceltaos
+d 755 root root /usr/share/burg-manager/images -
+f 644 root root /usr/share/burg-manager/images/OK.png ./root/usr/share/burg-manager/images/OK.png
+f 644 root root /usr/share/burg-manager/images/help.png ./root/usr/share/burg-manager/images/help.png
+f 644 root root /usr/share/burg-manager/images/logo.png ./root/usr/share/burg-manager/images/logo.png
+f 644 root root /usr/share/burg-manager/images/burg-emu.png ./root/usr/share/burg-manager/images/burg-emu.png
+f 644 root root /usr/share/burg-manager/images/apply.png ./root/usr/share/burg-manager/images/apply.png
+f 644 root root /usr/share/burg-manager/images/restore.png ./root/usr/share/burg-manager/images/restore.png
+f 644 root root /usr/share/burg-manager/images/install.png ./root/usr/share/burg-manager/images/install.png
+d 755 root root /usr/share/burg-manager/images/preview -
+f 600 root root /usr/share/burg-manager/images/preview/.directory ./root/usr/share/burg-manager/images/preview/.directory
+f 644 root root /usr/share/burg-manager/images/preview/minimal_by_sir.png ./root/usr/share/burg-manager/images/preview/minimal_by_sir.png
+f 644 root root /usr/share/burg-manager/images/preview/vitruvio.png ./root/usr/share/burg-manager/images/preview/vitruvio.png
+f 644 root root /usr/share/burg-manager/images/preview/fortune.png ./root/usr/share/burg-manager/images/preview/fortune.png
+f 644 root root /usr/share/burg-manager/images/preview/kubuntu_EOS.png ./root/usr/share/burg-manager/images/preview/kubuntu_EOS.png
+f 644 root root /usr/share/burg-manager/images/preview/ubuntu_brand.png ./root/usr/share/burg-manager/images/preview/ubuntu_brand.png
+f 644 root root /usr/share/burg-manager/images/preview/homer.png ./root/usr/share/burg-manager/images/preview/homer.png
+f 644 root root /usr/share/burg-manager/images/preview/gnome1.png ./root/usr/share/burg-manager/images/preview/gnome1.png
+f 644 root root /usr/share/burg-manager/images/preview/darkshine.png ./root/usr/share/burg-manager/images/preview/darkshine.png
+f 644 root root /usr/share/burg-manager/images/preview/sunset.png ./root/usr/share/burg-manager/images/preview/sunset.png
+f 644 root root /usr/share/burg-manager/images/preview/autumn.png ./root/usr/share/burg-manager/images/preview/autumn.png
+f 644 root root /usr/share/burg-manager/images/preview/kubuntu_brand.png ./root/usr/share/burg-manager/images/preview/kubuntu_brand.png
+f 644 root root /usr/share/burg-manager/images/preview/goldensea.png ./root/usr/share/burg-manager/images/preview/goldensea.png
+f 644 root root /usr/share/burg-manager/images/preview/abstract.png ./root/usr/share/burg-manager/images/preview/abstract.png
+f 644 root root /usr/share/burg-manager/images/preview/wasp.png ./root/usr/share/burg-manager/images/preview/wasp.png
+f 644 root root /usr/share/burg-manager/images/preview/mint.png ./root/usr/share/burg-manager/images/preview/mint.png
+f 644 root root /usr/share/burg-manager/images/preview/magic.png ./root/usr/share/burg-manager/images/preview/magic.png
+f 644 root root /usr/share/burg-manager/images/preview/picchio.png ./root/usr/share/burg-manager/images/preview/picchio.png
+f 644 root root /usr/share/burg-manager/images/preview/hortensia.png ./root/usr/share/burg-manager/images/preview/hortensia.png
+f 644 root root /usr/share/burg-manager/images/preview/orange.png ./root/usr/share/burg-manager/images/preview/orange.png
+f 644 root root /usr/share/burg-manager/images/preview/radiance.png ./root/usr/share/burg-manager/images/preview/radiance.png
+f 644 root root /usr/share/burg-manager/images/preview/kubuntu_wall.png ./root/usr/share/burg-manager/images/preview/kubuntu_wall.png
+f 644 root root /usr/share/burg-manager/images/preview/gogo-noge-hot-legs.png ./root/usr/share/burg-manager/images/preview/gogo-noge-hot-legs.png
+f 644 root root /usr/share/burg-manager/images/preview/minimal.png ./root/usr/share/burg-manager/images/preview/minimal.png
+f 644 root root /usr/share/burg-manager/images/preview/ubuntu_wall.png ./root/usr/share/burg-manager/images/preview/ubuntu_wall.png
+f 644 root root /usr/share/burg-manager/images/preview/sexybuntu.png ./root/usr/share/burg-manager/images/preview/sexybuntu.png
+f 644 root root /usr/share/burg-manager/images/preview/tux-burger.png ./root/usr/share/burg-manager/images/preview/tux-burger.png
+f 644 root root /usr/share/burg-manager/images/linea.png ./root/usr/share/burg-manager/images/linea.png
+f 644 root root /usr/share/burg-manager/images/remove.png ./root/usr/share/burg-manager/images/remove.png
+d 755 root root /usr/share/burg-manager/images/flag -
+f 644 root root /usr/share/burg-manager/images/flag/Germany.png ./root/usr/share/burg-manager/images/flag/Germany.png
+f 644 root root /usr/share/burg-manager/images/flag/Romania.png ./root/usr/share/burg-manager/images/flag/Romania.png
+f 644 root root /usr/share/burg-manager/images/flag/Indonesia.png ./root/usr/share/burg-manager/images/flag/Indonesia.png
+f 644 root root /usr/share/burg-manager/images/flag/France.png ./root/usr/share/burg-manager/images/flag/France.png
+f 644 root root /usr/share/burg-manager/images/flag/Poland.png ./root/usr/share/burg-manager/images/flag/Poland.png
+f 644 root root /usr/share/burg-manager/images/flag/China.png ./root/usr/share/burg-manager/images/flag/China.png
+f 644 root root /usr/share/burg-manager/images/flag/Italy.png ./root/usr/share/burg-manager/images/flag/Italy.png
+f 644 root root /usr/share/burg-manager/images/flag/Sweden.png ./root/usr/share/burg-manager/images/flag/Sweden.png
+f 644 root root /usr/share/burg-manager/images/flag/Spain.png ./root/usr/share/burg-manager/images/flag/Spain.png
+f 644 root root /usr/share/burg-manager/images/flag/Hungary.png ./root/usr/share/burg-manager/images/flag/Hungary.png
+f 644 root root /usr/share/burg-manager/images/flag/Portugal.png ./root/usr/share/burg-manager/images/flag/Portugal.png
+f 644 root root /usr/share/burg-manager/images/flag/Netherlands.png ./root/usr/share/burg-manager/images/flag/Netherlands.png
+f 644 root root /usr/share/burg-manager/images/flag/England.png ./root/usr/share/burg-manager/images/flag/England.png
+f 644 root root /usr/share/burg-manager/images/flag/Brazil.png ./root/usr/share/burg-manager/images/flag/Brazil.png
+f 644 root root /usr/share/burg-manager/images/flag/Croatia.png ./root/usr/share/burg-manager/images/flag/Croatia.png
+f 755 root root /usr/share/burg-manager/images/ISO.png ./root/usr/share/burg-manager/images/ISO.png
+f 644 root root /usr/share/burg-manager/images/admin.png ./root/usr/share/burg-manager/images/admin.png
+f 644 root root /usr/share/burg-manager/images/attention.png ./root/usr/share/burg-manager/images/attention.png
+f 644 root root /usr/share/burg-manager/nl ./root/usr/share/burg-manager/nl
+f 644 root root /usr/share/burg-manager/burg-manager.mc ./root/usr/share/burg-manager/burg-manager.mc
+f 755 root root /usr/share/burg-manager/cleaner ./root/usr/share/burg-manager/cleaner
+f 644 root root /usr/share/burg-manager/updateavaible.mc ./root/usr/share/burg-manager/updateavaible.mc
+f 644 root root /usr/share/burg-manager/success.mc ./root/usr/share/burg-manager/success.mc
+f 644 root root /usr/share/burg-manager/unsuccess.mc ./root/usr/share/burg-manager/unsuccess.mc
+f 755 root root /usr/share/burg-manager/addmenuentry ./root/usr/share/burg-manager/addmenuentry
+f 644 root root /usr/share/burg-manager/version ./root/usr/share/burg-manager/version
+f 644 root root /usr/share/burg-manager/ptbr ./root/usr/share/burg-manager/ptbr
+f 755 root root /usr/share/burg-manager/killlang ./root/usr/share/burg-manager/killlang
+f 644 root root /usr/share/burg-manager/hu ./root/usr/share/burg-manager/hu
+d 755 root root /usr/share/icons -
+d 755 root root /usr/share/icons/hicolor -
+d 755 root root /usr/share/icons/hicolor/128x128 -
+d 755 root root /usr/share/icons/hicolor/128x128/apps -
+f 644 root root /usr/share/icons/hicolor/128x128/apps/burg-manager.png ./root/usr/share/icons/hicolor/128x128/apps/burg-manager.png
+d 755 root root /usr/share/icons/hicolor/22x22 -
+d 755 root root /usr/share/icons/hicolor/22x22/apps -
+f 644 root root /usr/share/icons/hicolor/22x22/apps/burg-manager.png ./root/usr/share/icons/hicolor/22x22/apps/burg-manager.png
+d 755 root root /usr/share/icons/hicolor/16x16 -
+d 755 root root /usr/share/icons/hicolor/16x16/apps -
+f 644 root root /usr/share/icons/hicolor/16x16/apps/burg-manager.png ./root/usr/share/icons/hicolor/16x16/apps/burg-manager.png
+d 755 root root /usr/share/icons/hicolor/32x32 -
+d 755 root root /usr/share/icons/hicolor/32x32/apps -
+f 644 root root /usr/share/icons/hicolor/32x32/apps/burg-manager.png ./root/usr/share/icons/hicolor/32x32/apps/burg-manager.png
+d 755 root root /usr/share/icons/hicolor/48x48 -
+d 755 root root /usr/share/icons/hicolor/48x48/apps -
+f 644 root root /usr/share/icons/hicolor/48x48/apps/burg-manager.png ./root/usr/share/icons/hicolor/48x48/apps/burg-manager.png
+d 755 root root /usr/share/icons/hicolor/24x24 -
+d 755 root root /usr/share/icons/hicolor/24x24/apps -
+f 644 root root /usr/share/icons/hicolor/24x24/apps/burg-manager.png ./root/usr/share/icons/hicolor/24x24/apps/burg-manager.png
+d 755 root root /usr/share/icons/hicolor/64x64 -
+d 755 root root /usr/share/icons/hicolor/64x64/apps -
+f 644 root root /usr/share/icons/hicolor/64x64/apps/burg-manager.png ./root/usr/share/icons/hicolor/64x64/apps/burg-manager.png
+d 755 root root /usr/share/applications -
+f 744 root root /usr/share/applications/Burg-manager.desktop ./root/usr/share/applications/Burg-manager.desktop
+d 755 root root /usr/bin -
+f 755 root root /usr/bin/burg-manager ./root/usr/bin/burg-manager

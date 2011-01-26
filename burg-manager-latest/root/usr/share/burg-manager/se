@@ -1,0 +1,70 @@
+Installera-Burg
+Parametrar 
+I N S T A L L E R A - B U R G
+Välj hårddisk att installera burg (standard: sda)
+Klicka nedan för att simulera uppstart av burg. Använd tangenter: T för att välja tema, F för att aktivera fällaihop-läge
+installera burg
+burg-emulator
+Välj standard OS att starta
+Verkställ
+Välj lämplig upplösning som passar din skärm:
+Välj upplösning
+Väntetid är just nu
+sekunder
+Välj väntetid
+Verkställ ändringar
+Välj tema
+Avinstallera Burg
+Avinstallera Burg, och återställ Grub
+Ta bort burg
+Välj hårddisk
+Återställ Grub
+Avancerade inställningar
+Editera filen /etc/default/burg direkt
+Öppna fil
+Aktivera
+Deaktivera
+Ändra
+Sparad
+För att skydda Burg med ett lösenord måste ange ett användarnamn nedan:
+Lägg till
+Ta bort
+Info
+LICENS
+BURG-MANAGER WEBBSIDA
+BURG PROJEKTETS WEBBSIDA
+BUC WEBBSIDA
+SICILINUX WEBBSIDA
+Dubbelklicka på en ikon för att installera temat
+Radera tidigare kärnor och tillhörande länkar till meny:
+Utför
+Återställ burg-managers standardinställningar:
+Återställ inställningar
+Boota iso
+Välj isofil att boota
+Lägg till meny
+Välj iso typ
+Kolla efter uppdateringar
+Utför
+En ny version av Burg-manager är tillgänglig
+Vill du uppgradera?
+Ja
+Nej
+administratörnamn
+användarnamn
+När en uppdateringen är klar kommer programmet att
+automatiskt starta om
+Inga uppdateringar tillgängliga
+OK
+Välj isofil att ta bort från lista
+Ta bort
+Lyckades
+Återställ Burg till MBR
+Standard Parametrar 
+Efter kärnuppdatering återställs
+Grub till MBR.
+Om du klickar på "Återställ Burg 
+till MBR" löser du detta
+problem.
+Hjälp
+Ett fel har inträffat under installationen

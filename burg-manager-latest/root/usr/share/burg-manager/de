@@ -1,0 +1,70 @@
+Burg-installer
+Einstellungen
+B U R G - I N S T A L L E R
+Festplatte, auf der Burg installiert/restauriert werden soll:
+Burg emulieren, um z.B. Themes zu testen. Nützliche Tasten: "T" - Theme wählen; "F" - Folding-Modus) 
+Burg installieren
+Burg-Emulator
+Standard-Booteintrag:
+Übernehmen
+Auflösung (abhängig von Monitor und Grafikkarte):
+Auflösung festlegen
+Wartezeit (derzeit 
+Sekunden)
+Timeout festlegen
+Änderungen übernehme
+Themes
+Burg deinstallieren
+Burg entfernen und Grub wiederherstellen:
+Burg deinstallieren
+Festplatte wählen:
+Grub wiederherstellen
+Erweiterte Einstellungen
+Konfigurationsdatei direkt bearbeiten (/etc/default/burg)
+Datei öffnen
+Aktivieren
+Deaktivieren
+Übernehmen
+Gespeichert
+Um Burg mit einem Passwort zu schützen, muss ein Benutzername festgelegt werden:
+Hinzufügen
+Entfernen
+Info
+LICENSE
+SITO BURG-MANAGER
+BURG HOMEPAGE PROJECT
+SITO BUC
+SITO SICILINUX
+Zum Installieren eines Themes auf das entsprechende Icon doppelt klicken:
+Entfernen Sie frühere Versionen des Kernels und zugehöriger menuentry
+Laufen
+Wiederherstellen der Standardeinstellungen des Burg-Manager
+Wiederherstellen Einstellungen
+Boot iso
+Wählen iso zu booten
+Schreibe menuentry
+Wählen Sie die Art der iso
+Prüfen Sie die Verfügbarkeit Updates
+Laufen
+Es ist avaible eine neue Version von Burg-Manager
+Wollen Sie ein Upgrade?
+Ja
+Nein
+admin name
+user name
+Wenn Update fertig ist, Burg-Manager Programm wird 
+automatisch neu gestartet
+Keine Updates verfügbar
+OK
+Wählen iso menuentry dass Sie entfernen möchten
+Entfernen
+Operation erfolgreich durchgeführt
+Wiederherstellen Burg in MBR
+Grundparameter
+Nach dem Update des Kernels ist 
+Burg überschrieben Grub in den MBR.
+Mit einem Klick auf "Wiederherstellen Burg 
+in MBR" kann man dieses 
+Problem beheben.
+Hilfe
+Ein Fehler ist während der Installation aufgetreten

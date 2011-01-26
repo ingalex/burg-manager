@@ -1,0 +1,12 @@
+#!/bin/bash
+
+isos=$(grep -i -e menuentry /etc/burg.d/50_iso | awk -F[\'\"] '{print $2}'| sed '/./!d'|wc -l)
+linenum=$isos
+while (( linenum >="0" )) ;
+do
+input[$linenum]=$(grep -i -e menuentry /etc/burg.d/50_iso | awk -F[\'\"] '{print $2}'| sed '/./!d'| head -$linenum | /usr/bin/tail -1)
+echo ${input[$linenum]}
+i=$(($linenum-1))
+linenum=$i
+done
+exit 0

@@ -1,0 +1,3 @@
+#!/bin/bash
+sed -n -e '/^GRUB_CMDLINE_LINUX_DEFAULT/p' /etc/default/grub| awk -F[\'\"] '{print $2}' 
+exit 0
